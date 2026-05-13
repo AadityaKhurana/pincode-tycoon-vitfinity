@@ -6,21 +6,16 @@ import {
   Map as MapIcon,
   History,
   AlertTriangle,
-  Info,
-  IndianRupee,
   Bell,
   Plus,
   Minus,
   MapPin,
   Home,
-  Building,
   TreePine,
   Construction,
-  Briefcase,
   ShoppingBag,
   Store,
-  Navigation,
-  DollarSign
+  Info
 } from 'lucide-react';
 import { Joyride, type Step } from 'react-joyride';
 import { motion, AnimatePresence, useAnimation } from 'framer-motion';
@@ -366,7 +361,6 @@ const generatePropertyForTile = (tile: CityTile, turn: number): Property => {
   }
 
   // --- Apply Turn-based Appreciation ---
-  const quarterlyRate = appreciation / 4; // Approximation of quarterly growth
   const yearsElapsed = (turn - 1) / 4;
   const appreciationFactor = Math.pow(1 + (appreciation / 100), yearsElapsed);
 
@@ -650,21 +644,19 @@ const App: React.FC = () => {
         steps={steps}
         run={runTour}
         continuous={true}
-        showProgress={true}
-        showSkipButton={true}
-        disableScrolling={false}
         scrollToFirstStep={true}
+        options={{
+          primaryColor: '#ea580c',
+          zIndex: 10000,
+          buttons: ['back', 'close', 'primary', 'skip'],
+        }}
         styles={{
-          options: {
-            primaryColor: '#ea580c',
-            zIndex: 10000,
-          },
           tooltip: {
-            maxWidth: '350px',
-            fontSize: '14px',
+            maxWidth: 350,
+            fontSize: 14,
           }
         }}
-        callback={(data) => {
+        onEvent={(data) => {
           if (data.status === 'finished' || data.status === 'skipped') {
             setRunTour(false);
           }

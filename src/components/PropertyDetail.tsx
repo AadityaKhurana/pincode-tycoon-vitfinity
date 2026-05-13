@@ -3,10 +3,8 @@ import {
   X, 
   ShieldCheck, 
   ShieldAlert, 
-  TrendingUp,
   Home,
   Ruler,
-  IndianRupee,
   Wrench,
   Info
 } from 'lucide-react';
