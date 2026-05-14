@@ -755,7 +755,7 @@ const App: React.FC = () => {
                 className="grid-view"
               >
                 <div className="view-header">
-                  <h2>Mumbai Metropolitan Region</h2>
+                  <h2>Delhi Metropolitan Region</h2>
                   <p>Drag the map to explore. Click on a building to invest!</p>
                 </div>
 
